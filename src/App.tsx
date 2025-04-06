@@ -5,17 +5,27 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
-import Hotels from "./pages/Hotels";
-import FoodGuide from "./pages/FoodGuide";
-import WildlifeSafari from "./pages/WildlifeSafari";
-import Animals from "./pages/Animals";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Lazy load pages for better performance
+const Hotels = lazy(() => import("./pages/Hotels"));
+const FoodGuide = lazy(() => import("./pages/FoodGuide"));
+const WildlifeSafari = lazy(() => import("./pages/WildlifeSafari"));
+const Animals = lazy(() => import("./pages/Animals"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000 // 5 minutes
+    }
+  }
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,13 +40,41 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/radhanagari-hotels-homestays" element={<Hotels />} />
-            <Route path="/radhanagari-food-guide" element={<FoodGuide />} />
-            <Route path="/radhanagari-wildlife-safari" element={<WildlifeSafari />} />
-            <Route path="/radhanagari-animals" element={<Animals />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/radhanagari-hotels-homestays" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <Hotels />
+              </Suspense>
+            } />
+            <Route path="/radhanagari-food-guide" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <FoodGuide />
+              </Suspense>
+            } />
+            <Route path="/radhanagari-wildlife-safari" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <WildlifeSafari />
+              </Suspense>
+            } />
+            <Route path="/radhanagari-animals" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <Animals />
+              </Suspense>
+            } />
+            <Route path="/blog" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <Blog />
+              </Suspense>
+            } />
+            <Route path="/blog/:slug" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <BlogPost />
+              </Suspense>
+            } />
+            <Route path="/contact" element={
+              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+                <Contact />
+              </Suspense>
+            } />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
