@@ -39,10 +39,10 @@ const foodItems: FoodItem[] = [
 
 const LocalFood = () => {
   return (
-    <section className="section-container">
+    <section className="section-container bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">Authentic Local Cuisine</h2>
+          <h2 className="text-3xl font-bold mb-3 text-forest">Authentic Local Cuisine</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Radhanagari is not only about wildlife – it's also a heaven for authentic Kolhapuri food lovers. 
             Experience traditional flavors and local delicacies during your visit.
@@ -51,12 +51,13 @@ const LocalFood = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {foodItems.map((food, index) => (
-            <div key={index} className="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={index} className="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
               <div className="md:w-1/3">
                 <img 
                   src={food.imageSrc} 
                   alt={food.name} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 md:w-2/3">
@@ -81,7 +82,7 @@ const LocalFood = () => {
           </p>
           <Link 
             to="/radhanagari-food-guide"
-            className="btn-primary inline-flex items-center"
+            className="bg-gradient-forest hover:bg-forest-dark text-white py-3 px-6 rounded transition-colors duration-300 inline-flex items-center font-medium"
           >
             Explore Food Guide <ArrowRight className="ml-2 h-5 w-5" />
           </Link>

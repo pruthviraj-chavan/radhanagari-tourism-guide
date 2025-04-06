@@ -16,13 +16,13 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4 animate-slide-in" style={{animationDelay: '0.3s'}}>
           <Link
             to="/radhanagari-hotels-homestays"
-            className="bg-forest hover:bg-forest-dark text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
+            className="bg-gradient-forest hover:bg-forest-dark text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
           >
             Find Accommodation <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
           <Link
             to="/radhanagari-wildlife-safari"
-            className="bg-earth hover:bg-earth-dark text-forest-dark font-bold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
+            className="bg-gradient-earth hover:bg-earth-dark text-forest-dark font-bold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
           >
             Book Safari <ArrowRight className="ml-2 h-5 w-5" />
           </Link>

@@ -8,6 +8,7 @@ import FeaturedHotels from '@/components/FeaturedHotels';
 import SafariSection from '@/components/SafariSection';
 import LocalFood from '@/components/LocalFood';
 import BlogHighlights from '@/components/BlogHighlights';
+import VideoSection from '@/components/VideoSection';
 
 const Index = () => {
   return (
@@ -32,6 +33,7 @@ const Index = () => {
           </div>
         </div>
         <NaturalSpots />
+        <VideoSection />
         <FeaturedHotels />
         <SafariSection />
         <LocalFood />

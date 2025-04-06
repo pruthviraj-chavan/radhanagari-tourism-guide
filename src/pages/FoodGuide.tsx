@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/Layout';
@@ -106,7 +107,7 @@ const FoodGuide = () => {
         <meta name="description" content="Explore traditional food in Radhanagari. Taste tambda & pandhra rassa, jungle bhakri, bamboo pickle & local sweets in homestays & forest resorts." />
       </Helmet>
       <Layout>
-        <div className="bg-earth text-forest-dark py-16">
+        <div className="bg-gradient-earth text-forest-dark py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">Local Food in Radhanagari</h1>
             <p className="max-w-3xl mx-auto text-center">
@@ -115,7 +116,7 @@ const FoodGuide = () => {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 overflow-x-hidden">
           <div className="mb-10">
             <p className="text-gray-700 mb-4">
               Radhanagari is not only about jungles – it's also a heaven for authentic Kolhapuri food lovers. The local cuisine features spicy gravies, rustic flavors, and fresh ingredients from the surrounding forests and farms.
@@ -126,17 +127,17 @@ const FoodGuide = () => {
           </div>
           
           <Tabs defaultValue="all">
-            <div className="mb-6">
-              <TabsList className="border border-gray-200">
-                <TabsTrigger value="all">All Foods</TabsTrigger>
-                <TabsTrigger value="veg">Vegetarian</TabsTrigger>
-                <TabsTrigger value="non-veg">Non-Vegetarian</TabsTrigger>
-                <TabsTrigger value="beverage">Beverages</TabsTrigger>
+            <div className="mb-6 overflow-x-auto">
+              <TabsList className="border border-gray-200 w-full md:w-auto flex-nowrap">
+                <TabsTrigger value="all" className="whitespace-nowrap">All Foods</TabsTrigger>
+                <TabsTrigger value="veg" className="whitespace-nowrap">Vegetarian</TabsTrigger>
+                <TabsTrigger value="non-veg" className="whitespace-nowrap">Non-Vegetarian</TabsTrigger>
+                <TabsTrigger value="beverage" className="whitespace-nowrap">Beverages</TabsTrigger>
               </TabsList>
             </div>
             
             <TabsContent value="all" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {foodItems.map((food) => (
                   <FoodCard key={food.id} food={food} />
                 ))}
@@ -144,7 +145,7 @@ const FoodGuide = () => {
             </TabsContent>
             
             <TabsContent value="veg" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {foodItems.filter(f => f.type === 'veg').map((food) => (
                   <FoodCard key={food.id} food={food} />
                 ))}
@@ -152,7 +153,7 @@ const FoodGuide = () => {
             </TabsContent>
             
             <TabsContent value="non-veg" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {foodItems.filter(f => f.type === 'non-veg').map((food) => (
                   <FoodCard key={food.id} food={food} />
                 ))}
@@ -160,7 +161,7 @@ const FoodGuide = () => {
             </TabsContent>
             
             <TabsContent value="beverage" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {foodItems.filter(f => f.type === 'beverage').map((food) => (
                   <FoodCard key={food.id} food={food} />
                 ))}
@@ -210,10 +211,11 @@ const FoodCard = ({ food }: FoodCardProps) => {
           src={food.imageSrc} 
           alt={food.name} 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
-      <div className="p-6 md:w-2/3">
-        <div className="flex justify-between items-start mb-2">
+      <div className="p-4 md:p-6 md:w-2/3">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
           <h3 className="text-xl font-semibold text-forest">{food.name}</h3>
           <div className={`flex items-center px-2 py-1 rounded text-xs ${
             food.type === 'veg' 

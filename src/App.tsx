@@ -10,6 +10,7 @@ import Hotels from "./pages/Hotels";
 import FoodGuide from "./pages/FoodGuide";
 import WildlifeSafari from "./pages/WildlifeSafari";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/radhanagari-food-guide" element={<FoodGuide />} />
             <Route path="/radhanagari-wildlife-safari" element={<WildlifeSafari />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
