@@ -133,6 +133,30 @@
   .water-gradient {
     @apply bg-gradient-to-r from-water to-water-dark text-white;
   }
+  
+  /* Video player responsive container */
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+  }
+  
+  .aspect-h-9 {
+    position: relative;
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Border for image triangles */
+  .border-l-12 {
+    border-left-width: 12px;
+  }
 }
 
 .text-forest {

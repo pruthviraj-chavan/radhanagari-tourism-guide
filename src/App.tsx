@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Hotels from "./pages/Hotels";
 import FoodGuide from "./pages/FoodGuide";
 import WildlifeSafari from "./pages/WildlifeSafari";
+import Animals from "./pages/Animals";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/radhanagari-hotels-homestays" element={<Hotels />} />
             <Route path="/radhanagari-food-guide" element={<FoodGuide />} />
             <Route path="/radhanagari-wildlife-safari" element={<WildlifeSafari />} />
+            <Route path="/radhanagari-animals" element={<Animals />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
