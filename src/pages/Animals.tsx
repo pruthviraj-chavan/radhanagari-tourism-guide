@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/Layout';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 import ReactPlayer from 'react-player/lazy';
@@ -326,7 +327,7 @@ const AnimalsPage = () => {
             ))}
           </div>
 
-          {/* Wildlife Videos Section - Optimized for lazy loading */}
+          {/* Wildlife Videos Section */}
           <div className="my-16">
             <h2 className="text-3xl font-bold mb-8 text-center text-forest">Wildlife Videos</h2>
             
@@ -340,9 +341,6 @@ const AnimalsPage = () => {
                       height="100%"
                       controls={true}
                       className="react-player"
-                      light={selectedVideo.thumbnailUrl}
-                      playing
-                      lazy
                     />
                   </div>
                   <div className="p-4">
@@ -370,7 +368,6 @@ const AnimalsPage = () => {
                         src={video.thumbnailUrl} 
                         alt={video.title} 
                         className="w-full h-full object-cover"
-                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                         <div className="w-16 h-16 rounded-full bg-white bg-opacity-80 flex items-center justify-center">
