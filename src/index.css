@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 120 35% 28%;
+    --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,14 +35,9 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --forest: 120 30% 20%;
+    --forest-light: 120 30% 40%;
+    --forest-dark: 120 30% 10%;
   }
 
   .dark {
@@ -73,14 +68,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -88,44 +75,47 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-forest-dark;
-  }
-
-  h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
-  }
-
-  h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
-  }
-
-  h3 {
-    @apply text-xl md:text-2xl lg:text-3xl;
   }
 }
 
-@layer components {
-  .hero-section {
-    @apply relative flex items-center justify-center min-h-[70vh] overflow-hidden bg-cover bg-center text-white;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero-bg.jpg');
-  }
+.text-forest {
+  color: rgb(0, 77, 0);
+}
 
-  .section-container {
-    @apply container mx-auto px-4 py-12 md:py-16 lg:py-20;
-  }
+.bg-forest {
+  background-color: rgb(0, 77, 0);
+}
 
-  .feature-card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
-  }
+.text-forest-light {
+  color: rgb(0, 102, 0);
+}
 
-  .btn-primary {
-    @apply bg-forest hover:bg-forest-dark text-white py-2 px-4 rounded transition-colors duration-300;
-  }
+.bg-forest-light {
+  background-color: rgb(0, 102, 0);
+}
+
+.text-forest-dark {
+  color: rgb(0, 51, 0);
+}
+
+.bg-forest-dark {
+  background-color: rgb(0, 51, 0);
+}
+
+.hover\:bg-forest:hover {
+  background-color: rgb(0, 77, 0);
+}
+
+.hover\:bg-forest-light:hover {
+  background-color: rgb(0, 102, 0);
+}
+
+.hover\:bg-forest-dark:hover {
+  background-color: rgb(0, 51, 0);
+}
+
+.hover\:text-forest:hover {
+  color: rgb(0, 77, 0);
 }
