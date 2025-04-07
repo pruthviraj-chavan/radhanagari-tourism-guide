@@ -1,12 +1,15 @@
 
-import React, { useState } from 'react';
-import ReactPlayer from 'react-player/lazy';
+import React, { useState, lazy, Suspense } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
+
+// Lazy load ReactPlayer to improve initial page load speed
+const ReactPlayer = lazy(() => import('react-player/lazy'));
 
 const VideoSection = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
-    <section className="section-container bg-gradient-to-b from-white to-gray-50">
+    <section className="section-container bg-gradient-to-b from-white to-gray-50 py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-3 text-forest">Experience Radhanagari</h2>
@@ -16,25 +19,33 @@ const VideoSection = () => {
         </div>
         
         <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-xl">
-          {!isVideoLoaded && (
-            <div className="w-full aspect-video bg-gray-200 flex items-center justify-center">
-              <div className="animate-pulse">Loading video...</div>
-            </div>
-          )}
-          <div className={isVideoLoaded ? 'block' : 'block'}>
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-              width="100%"
-              height="100%"
-              style={{ aspectRatio: '16/9' }}
-              controls={true}
-              onReady={() => setIsVideoLoaded(true)}
-              config={{
-                youtube: {
-                  playerVars: { showinfo: 1 }
-                }
-              }}
-            />
+          <div className="w-full aspect-video">
+            {!isVideoLoaded && (
+              <Skeleton className="w-full h-full bg-gray-200 flex items-center justify-center">
+                <div className="text-gray-500">Loading video...</div>
+              </Skeleton>
+            )}
+            <Suspense fallback={<Skeleton className="w-full h-full" />}>
+              <div className={isVideoLoaded ? 'block' : 'hidden'}>
+                <ReactPlayer
+                  url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                  width="100%"
+                  height="100%"
+                  style={{ aspectRatio: '16/9' }}
+                  controls={true}
+                  onReady={() => setIsVideoLoaded(true)}
+                  light={true} // Use light mode to reduce initial load
+                  config={{
+                    youtube: {
+                      playerVars: { 
+                        showinfo: 1,
+                        rel: 0 // Don't show related videos
+                      }
+                    }
+                  }}
+                />
+              </div>
+            </Suspense>
           </div>
         </div>
         
