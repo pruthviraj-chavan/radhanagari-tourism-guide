@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -22,7 +21,6 @@ const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Hotels & Homestays', href: '/radhanagari-hotels-homestays' },
   { label: 'Wildlife Safari', href: '/radhanagari-wildlife-safari' },
-  { label: 'Animals', href: '/radhanagari-animals' },
   { label: 'Food Guide', href: '/radhanagari-food-guide' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

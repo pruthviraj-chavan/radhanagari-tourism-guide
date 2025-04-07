@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 const Hotels = lazy(() => import("./pages/Hotels"));
 const FoodGuide = lazy(() => import("./pages/FoodGuide"));
 const WildlifeSafari = lazy(() => import("./pages/WildlifeSafari"));
-const Animals = lazy(() => import("./pages/Animals"));
+// Removed Animals import
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -55,11 +55,7 @@ const App = () => (
                 <WildlifeSafari />
               </Suspense>
             } />
-            <Route path="/radhanagari-animals" element={
-              <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
-                <Animals />
-              </Suspense>
-            } />
+            {/* Removed Animals route */}
             <Route path="/blog" element={
               <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
                 <Blog />
