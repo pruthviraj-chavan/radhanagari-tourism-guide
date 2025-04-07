@@ -68,7 +68,7 @@ const animals: Animal[] = [
     name: 'Great Hornbill',
     scientificName: 'Buceros bicornis',
     category: 'birds',
-    description: 'The Great Hornbill is a large bird with a bright yellow and black casque on its bill. With its impressive size and colorful features, it's one of the most iconic birds of Radhanagari. Their wing beats produce a distinctive sound that can be heard from a distance.',
+    description: 'The Great Hornbill is a large bird with a bright yellow and black casque on its bill. With its impressive size and colorful features, it\'s one of the most iconic birds of Radhanagari. Their wing beats produce a distinctive sound that can be heard from a distance.',
     imageSrc: 'https://images.unsplash.com/photo-1501286353178-1ec871214838',
     endangermentStatus: 'Vulnerable',
     funFact: 'During nesting, the female seals herself into a tree cavity using mud, droppings and fruit pulp, leaving only a small slit through which the male passes food.'
@@ -301,6 +301,7 @@ const AnimalsPage = () => {
                     src={animal.imageSrc} 
                     alt={animal.name} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-6">
